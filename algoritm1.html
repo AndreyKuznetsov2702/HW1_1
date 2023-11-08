@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Решение алгоритмической задачи</title>
+</head>
+<body>
+  <table style="width: 100%">
+        <tr>
+            <td align="center"><a href="index.html">DOM_JS </a></td>
+            <td align="center"><a href="index2.html">Изменяем кириллицу на латиницу </a></td>
+            <td align="center" style="background-color: aqua"><a href="algoritm1.html">Решение алгоритмической задачи </a></td>
+            </tr>
+    </table>
+    <h1>Имеются две ёмкости: кубическая с ребром A, цилиндрическая с высотой H и радиусом основания R. Определить, поместится ли жидкость объёма M в первую ёмкость, во вторую, в обе.</h1>
+    <form id="form">
+        <p><label for="a">Ребро куба:</label>
+            <input type="number" id="a" value="1"></p>
+        <p><label for="r">Радиус цилиндра:</label>
+            <input type="number" id="r" value="1"></p>
+        <p><label for="h">Высота цилиндра:</label>
+            <input type="number" id="h" value="1"></p>
+        <p><label for="m">Объем воды:</label>
+            <input type="number" id="m" value="1"></p>
+        <p><button type="button" id="send">Проверить</button></p>
+    </form>
+    <p id="result">Результат</p>
+    <script>
+        document.getElementById("send").addEventListener("click", function() {
+            var a = parseInt(document.getElementById("a").value);
+            var r = parseInt(document.getElementById("r").value);
+            var h = parseInt(document.getElementById("h").value);
+            var m = parseInt(document.getElementById("m").value);
+            var cubeVolume = Math.pow(a, 3);
+            var cylinderVolume = Math.PI * Math.pow(r, 2) * h;
+            if (m <= cubeVolume && m <= cylinderVolume) {
+                document.getElementById("result").innerHTML = "Объем воды помещается и в куб, и в цилиндр.";
+            } else if (m <= cubeVolume) {
+                document.getElementById("result").innerHTML = "Объем воды помещается только в куб.";
+            } else if (m <= cylinderVolume) {
+                document.getElementById("result").innerHTML = "Объем воды помещается только в цилиндр.";
+            } else {
+                document.getElementById("result").innerHTML = "Объем воды не помещается ни в куб, ни в цилиндр.";
+            }
+        });
+    </script>
+</body>
+</html>
